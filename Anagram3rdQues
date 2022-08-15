@@ -1,0 +1,64 @@
+package in.ineuron.main; 
+import java.util.*;
+class FirstS{
+	public char[] strRevS1(String s) { 
+		String str=s.toLowerCase();
+		char arr1[] = str.toCharArray(); 
+		for(int i=0;i<arr1.length-1;i++) {
+			for(int j=i+1;j<arr1.length;j++) {
+				if(arr1[i]>arr1[j]) {
+					char temp=arr1[i];
+					arr1[i]=arr1[j];
+					arr1[j]=temp;
+				}
+			}   
+	    }
+		return arr1;
+	}
+}
+class SecondS{
+	public char[] strRevS2(String s) { 
+		String str=s.toLowerCase();
+		char arr2[] = str.toCharArray(); 
+		for(int i=0;i<arr2.length-1;i++) {
+			for(int j=i+1;j<arr2.length;j++) {
+				if(arr2[i]>arr2[j]) {
+					char temp=arr2[i];
+					arr2[i]=arr2[j];
+					arr2[j]=temp;
+				}
+			}   
+	    }
+		return arr2;
+	}
+} 
+class Reverse{
+	char arr1[];
+	char arr2[];
+	String s2="";
+	public void stringReverse() { 
+		String str1="keep";
+		String str2="peEk";
+		FirstS obj1=new FirstS();
+		SecondS obj2=new SecondS();
+	    arr1=obj1.strRevS1(str1); 
+	    arr2=obj2.strRevS2(str2);
+	} 
+	public void anagram() { 
+	  boolean result=Arrays.equals(arr1,arr2);
+		if(result) {
+			System.out.println("Given Strings are Anagram Strings");
+			
+		}
+		else {
+			System.out.println("Given Strings are not anagram strings");
+		}
+	}
+}
+class ForPract{
+	public static void main(String[] args) { 
+		Reverse obj=new Reverse();
+		obj.stringReverse();
+		obj.anagram();
+	}
+}
